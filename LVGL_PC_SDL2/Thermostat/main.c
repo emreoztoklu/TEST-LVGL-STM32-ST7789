@@ -14,6 +14,12 @@
 #include "lvgl/lvgl.h"
 #include "lv_drivers/sdl/sdl.h"
 #include "ui/ui.h"
+#include <windows.h>
+#include <stdio.h>
+
+
+
+
 
 /*********************
  *      DEFINES
@@ -31,6 +37,9 @@ static void hal_init(void);
 /**********************
  *  STATIC VARIABLES
  **********************/
+SYSTEMTIME  lt;
+const char *DaysOfWeek[10] = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday","Saturday","Sunday"};
+const char *months[12] = {"January","February","March","April","May","June","July","August","September","October","November","December" };
 
 /**********************
  *      MACROS
@@ -76,8 +85,14 @@ int main(int argc, char **argv)
   while(1) {
       /* Periodically call the lv_task handler.
        * It could be done in a timer interrupt or an OS task too.*/
+
       lv_timer_handler();
       usleep(5 * 1000);
+
+      GetLocalTime(&lt);
+      lv_label_set_text_fmt(ui_Header_Time, "%02d:%02d", lt.wHour, lt.wMinute);
+      lv_label_set_text_fmt(ui_Header_Date, "%s, %s %d, %04d", DaysOfWeek[(lt.wDayOfWeek-1)], months[lt.wMonth-1], lt.wDay, lt.wYear);
+
   }
 
   return 0;

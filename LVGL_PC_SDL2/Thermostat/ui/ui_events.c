@@ -6,6 +6,7 @@
 #include "ui.h"
 #include <stdio.h>
 
+
 void fan_speed_value(lv_event_t * e){
 
 	lv_obj_t *slider = lv_event_get_target(e);
@@ -13,3 +14,5 @@ void fan_speed_value(lv_event_t * e){
 	printf("Fan Speed: %d\n",val);
 
 }
+
+

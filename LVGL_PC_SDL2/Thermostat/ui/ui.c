@@ -6,6 +6,10 @@
 #include "ui.h"
 #include "ui_helpers.h"
 
+#include <windows.h>
+
+SYSTEMTIME  lt;
+
 ///////////////////// VARIABLES ////////////////////
 lv_obj_t * ui_Screen1;
 lv_obj_t * ui_Header;
@@ -38,11 +42,12 @@ static void ui_event_Arc1(lv_event_t * e)
 
     if(event == LV_EVENT_VALUE_CHANGED) {
         _ui_arc_set_text_value(ui_Label_Celsius, ta, "", "°");
-        uint32_t val = atoi(lv_label_get_text(ui_Label_Celsius));
 
-        printf("Temperatue: %d\n", val);
+        uint32_t val = atoi(lv_label_get_text(ui_Label_Celsius));
+        printf("Temperature: %d\n", val);
     }
 }
+
 static void ui_event_Fan_Speed_Control(lv_event_t * e)
 {
     lv_event_code_t event = lv_event_get_code(e);
@@ -97,7 +102,7 @@ void ui_Screen1_screen_init(void)
 
     lv_obj_set_align(ui_Header_Date, LV_ALIGN_LEFT_MID);
 
-    lv_label_set_text(ui_Header_Date, "Friday, March 11, 2022");
+    //lv_label_set_text(ui_Header_Date, "Friday, March 11, 2022");
 
     lv_obj_set_style_text_color(ui_Header_Date, lv_color_hex(0xFFFFFF), LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_style_text_opa(ui_Header_Date, 255, LV_PART_MAIN | LV_STATE_DEFAULT);
@@ -114,7 +119,11 @@ void ui_Screen1_screen_init(void)
 
     lv_obj_set_align(ui_Header_Time, LV_ALIGN_RIGHT_MID);
 
-    lv_label_set_text(ui_Header_Time, "AM 7:45");
+    //lv_label_set_text(ui_Header_Time, "AM 7:45");
+
+
+
+
 
     lv_obj_set_style_text_color(ui_Header_Time, lv_color_hex(0xFFFFFF), LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_style_text_opa(ui_Header_Time, 255, LV_PART_MAIN | LV_STATE_DEFAULT);
