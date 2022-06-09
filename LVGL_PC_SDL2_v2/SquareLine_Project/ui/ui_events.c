@@ -9,5 +9,5 @@
 void fan_speed_value(lv_event_t * e){
 	lv_obj_t *slider = lv_event_get_target(e);
 	uint32_t val = lv_slider_get_value(slider);
-	printf ("Fan Speed: %2d",val);
+	printf ("Fan Speed: %2d\n",val);
 }

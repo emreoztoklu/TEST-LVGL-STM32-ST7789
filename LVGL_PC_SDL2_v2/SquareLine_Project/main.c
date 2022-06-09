@@ -59,6 +59,7 @@ const char *months[12] = {"January","February","March","April","May","June","Jul
  *      VARIABLES
  **********************/
 SYSTEMTIME  lt;
+
 /**********************
  *  STATIC PROTOTYPES
  **********************/

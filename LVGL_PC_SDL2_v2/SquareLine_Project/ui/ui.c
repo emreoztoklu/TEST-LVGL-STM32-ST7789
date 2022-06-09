@@ -29,6 +29,10 @@ lv_obj_t * ui_Deg1;
 lv_obj_t * ui_Label_Slider;
 lv_obj_t * ui_Fan_Speed_Control;
 
+/*USER*/
+uint32_t arc_val1;
+uint32_t arc_val2;
+
 ///////////////////// TEST LVGL SETTINGS ////////////////////
 #if LV_COLOR_DEPTH != 32
     #error "LV_COLOR_DEPTH should be 32bit to match SquareLine Studio's settings"
@@ -46,8 +50,8 @@ static void ui_event_Arc2(lv_event_t * e)
     lv_obj_t * ta = lv_event_get_target(e);
     if(event == LV_EVENT_VALUE_CHANGED) {
         _ui_arc_set_text_value(ui_Label_Celsius, ta, "", "");
-        uint32_t val = atoi(lv_label_get_text(ui_Label_Celsius));
-        printf("Temperature1: %d\n", val);
+        arc_val1 = atoi(lv_label_get_text(ui_Label_Celsius));
+        printf("Temperature1: %d\n", arc_val1);
     }
 }
 static void ui_event_Arc1(lv_event_t * e)
@@ -56,8 +60,8 @@ static void ui_event_Arc1(lv_event_t * e)
     lv_obj_t * ta = lv_event_get_target(e);
     if(event == LV_EVENT_VALUE_CHANGED) {
         _ui_arc_set_text_value(ui_Label_Celsius1, ta, "", "");
-        uint32_t val = atoi(lv_label_get_text(ui_Label_Celsius1));
-        printf("Temperature2: %d\n", val);
+        arc_val2 = atoi(lv_label_get_text(ui_Label_Celsius1));
+        printf("Temperature2: %d\n", arc_val2);
     }
 }
 static void ui_event_Fan_Speed_Control(lv_event_t * e)
@@ -281,7 +285,7 @@ void ui_Screen1_screen_init(void)
 
     lv_obj_set_align(ui_Label_Celsius, LV_ALIGN_CENTER);
 
-    lv_label_set_text(ui_Label_Celsius, "0");
+    lv_label_set_text(ui_Label_Celsius, "-");
 
     lv_obj_set_style_text_color(ui_Label_Celsius, lv_color_hex(0xFFFFFF), LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_style_text_opa(ui_Label_Celsius, 255, LV_PART_MAIN | LV_STATE_DEFAULT);
@@ -435,7 +439,9 @@ void ui_Screen1_screen_init(void)
 
     lv_obj_set_align(ui_Label_Celsius1, LV_ALIGN_CENTER);
 
-    lv_label_set_text(ui_Label_Celsius1, "0");
+    lv_label_set_text(ui_Label_Celsius1, "-");
+
+
 
     lv_obj_set_style_text_color(ui_Label_Celsius1, lv_color_hex(0xFFFFFF), LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_style_text_opa(ui_Label_Celsius1, 255, LV_PART_MAIN | LV_STATE_DEFAULT);
