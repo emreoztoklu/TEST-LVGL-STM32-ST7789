@@ -35,7 +35,7 @@ uint32_t arc_val2;
 
 ///////////////////// TEST LVGL SETTINGS ////////////////////
 #if LV_COLOR_DEPTH != 32
-    #error "LV_COLOR_DEPTH should be 32bit to match SquareLine Studio's settings"
+    //#error "LV_COLOR_DEPTH should be 32bit to match SquareLine Studio's settings"
 #endif
 #if LV_COLOR_16_SWAP !=0
     #error "#error LV_COLOR_16_SWAP should be 0 to match SquareLine Studio's settings"
@@ -157,7 +157,7 @@ void ui_Screen1_screen_init(void)
     lv_obj_set_style_text_color(ui_Label, lv_color_hex(0xFF0000), LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_style_text_opa(ui_Label, 255, LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_style_text_align(ui_Label, LV_TEXT_ALIGN_CENTER, LV_PART_MAIN | LV_STATE_DEFAULT);
-    lv_obj_set_style_text_font(ui_Label, &lv_font_montserrat_20, LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_text_font(ui_Label, &lv_font_montserrat_14, LV_PART_MAIN | LV_STATE_DEFAULT);
 
     // ui_Arc_Group
 
@@ -307,7 +307,7 @@ void ui_Screen1_screen_init(void)
 
     lv_obj_set_style_text_color(ui_Deg, lv_color_hex(0xFFFFFF), LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_style_text_opa(ui_Deg, 255, LV_PART_MAIN | LV_STATE_DEFAULT);
-    lv_obj_set_style_text_font(ui_Deg, &lv_font_montserrat_42, LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_text_font(ui_Deg, &lv_font_montserrat_24, LV_PART_MAIN | LV_STATE_DEFAULT);
 
     // ui_Arc_Group1
 
@@ -463,7 +463,7 @@ void ui_Screen1_screen_init(void)
 
     lv_obj_set_style_text_color(ui_Deg1, lv_color_hex(0xFFFFFF), LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_style_text_opa(ui_Deg1, 255, LV_PART_MAIN | LV_STATE_DEFAULT);
-    lv_obj_set_style_text_font(ui_Deg1, &lv_font_montserrat_42, LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_text_font(ui_Deg1, &lv_font_montserrat_24, LV_PART_MAIN | LV_STATE_DEFAULT);
 
     // ui_Label_Slider
 
